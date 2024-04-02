@@ -52,12 +52,19 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
+     signingConfigs {
+        release {
+             storeFile file('keystore/royal_store.jks') // Adjust the path accordingly
+            storePassword '123456'
+            keyAlias 'royal'
+            keyPassword '123456'
+        }
+    }
 
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+         release {
+             signingConfig signingConfigs.release
+         
         }
     }
 }
